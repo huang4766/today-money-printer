@@ -59,12 +59,6 @@ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 open ./今日印钞.app
 ```
 
-## 发布建议
-
-- 免费发布：`GitHub Releases`
-- 付费分发：`Gumroad + GitHub Releases`
-- 正式商店路线：`Mac App Store`
-
 ## Roadmap
 
 - 更多状态栏显示样式
