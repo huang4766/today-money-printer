@@ -4,6 +4,8 @@
 
 把今天赚了多少钱挂在菜单栏里，边上班边看数字往上跳。
 
+![今日印钞截图](./assets/app-screenshot.jpg)
+
 ## 特性
 
 - 菜单栏实时显示 `今日已赚`
@@ -26,6 +28,7 @@
 
 - 推荐从 GitHub Releases 下载打包好的 `.app` 或压缩包
 - 如果你想自己构建，也可以按下面步骤生成 `今日印钞.app`
+- Releases: [huang4766/today-money-printer/releases](https://github.com/huang4766/today-money-printer/releases)
 
 ## 系统要求
 
