@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>今日印钞</title>
+    <style>
+      :root {
+        --bg: #f4f5f7;
+        --card: rgba(255, 255, 255, 0.92);
+        --text: #141414;
+        --muted: #69707d;
+        --line: rgba(20, 20, 20, 0.08);
+        --blue: #1677ff;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(22, 119, 255, 0.08), transparent 28%),
+          linear-gradient(180deg, #f8f9fb 0%, var(--bg) 100%);
+        color: var(--text);
+      }
+
+      main {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 40px 20px 72px;
+      }
+
+      .hero, .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        box-shadow: 0 12px 40px rgba(17, 24, 39, 0.06);
+      }
+
+      .hero {
+        padding: 32px;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(22, 119, 255, 0.1);
+        color: var(--blue);
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      h1 {
+        margin: 16px 0 12px;
+        font-size: clamp(36px, 6vw, 64px);
+        line-height: 1.02;
+      }
+
+      .subtitle {
+        margin: 0;
+        max-width: 640px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 18px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .button.primary {
+        background: var(--blue);
+        color: white;
+      }
+
+      .button.secondary {
+        border: 1px solid var(--line);
+        color: var(--text);
+        background: white;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 18px;
+      }
+
+      .card p, .card li {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .footer {
+        margin-top: 20px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 720px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <span class="tag">macOS 菜单栏工具</span>
+        <h1>今日印钞</h1>
+        <p class="subtitle">
+          把今天赚了多少钱挂在菜单栏里。支持月薪、时薪、工作日规则、节假日同步、加班时段和多种状态栏显示样式。
+        </p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/huang4766/today-money-printer/releases">下载最新版</a>
+          <a class="button secondary" href="https://github.com/huang4766/today-money-printer">查看源码</a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>核心功能</h2>
+          <ul>
+            <li>菜单栏实时显示今日已赚</li>
+            <li>按月薪或时薪计算</li>
+            <li>支持午休、加班、节假日、补班</li>
+            <li>支持自动保存和本地缓存</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>适合谁</h2>
+          <ul>
+            <li>想实时看到今天赚了多少钱的人</li>
+            <li>有明确上下班、加班规则的人</li>
+            <li>想把收入数据做成菜单栏 HUD 的人</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>下载安装</h2>
+          <p>推荐通过 GitHub Releases 下载打包好的 `.app` 或 `.zip`，解压后直接打开。</p>
+        </article>
+
+        <article class="card">
+          <h2>开源与反馈</h2>
+          <p>欢迎提 Issue、提建议、提 PR。后续会继续完善 UI、节假日同步和自动更新。</p>
+        </article>
+      </section>
+
+      <p class="footer">仓库地址：huang4766/today-money-printer</p>
+    </main>
+  </body>
+</html>

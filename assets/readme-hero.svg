@@ -1,0 +1,106 @@
+<svg width="1400" height="960" viewBox="0 0 1400 960" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="140" y1="60" x2="1210" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FBFF"/>
+      <stop offset="1" stop-color="#EEF2F8"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="910" y1="120" x2="1110" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8FAFD"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="876" y1="68" x2="1132" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D7DFF"/>
+      <stop offset="1" stop-color="#48A3FF"/>
+    </linearGradient>
+    <filter id="shadow" x="135" y="93" width="1130" height="774" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#8FA3C6" flood-opacity="0.18"/>
+    </filter>
+    <filter id="pillShadow" x="270" y="120" width="497" height="92" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#7AA4FF" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="960" fill="url(#bg)"/>
+  <circle cx="170" cy="130" r="120" fill="#DDF0FF"/>
+  <circle cx="1240" cy="170" r="150" fill="#E2ECFF"/>
+  <circle cx="1180" cy="820" r="180" fill="#EAF7EC"/>
+
+  <text x="140" y="152" fill="#101828" font-size="76" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">今日印钞</text>
+  <text x="140" y="208" fill="#667085" font-size="28" font-family="SF Pro Display, PingFang SC, sans-serif">把今天赚了多少钱挂在菜单栏里，边上班边看数字往上跳。</text>
+
+  <g filter="url(#pillShadow)">
+    <rect x="282" y="132" width="473" height="68" rx="34" fill="url(#blue)"/>
+  </g>
+  <text x="322" y="176" fill="white" font-size="30" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">💰 ¥176.79 (+0.02/s)</text>
+
+  <g filter="url(#shadow)">
+    <rect x="163" y="121" width="1074" height="718" rx="40" fill="#F7F9FC"/>
+    <rect x="163" y="121" width="1074" height="718" rx="40" stroke="#E5EAF2" stroke-width="1.5"/>
+  </g>
+
+  <rect x="194" y="152" width="1012" height="76" rx="24" fill="white"/>
+  <circle cx="233" cy="190" r="14" fill="#111827" fill-opacity="0.08"/>
+  <path d="M227 184L239 196M239 184L227 196" stroke="#111827" stroke-width="2.4" stroke-linecap="round"/>
+  <text x="676" y="198" text-anchor="middle" fill="#111827" font-size="30" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">设置</text>
+  <rect x="1100" y="166" width="74" height="46" rx="23" fill="#1677FF"/>
+  <text x="1137" y="197" text-anchor="middle" fill="white" font-size="22" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">保存</text>
+
+  <text x="214" y="274" fill="#111827" font-size="48" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">今日印钞</text>
+  <text x="214" y="315" fill="#667085" font-size="24" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="600">正在赚钱</text>
+  <text x="214" y="350" fill="#98A2B3" font-size="18" font-family="SF Pro Display, PingFang SC, sans-serif">2026-04-22 按正常工作日规则计算</text>
+
+  <rect x="194" y="382" width="546" height="208" rx="28" fill="white"/>
+  <text x="224" y="430" fill="#667085" font-size="18" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">今日已赚</text>
+  <text x="224" y="505" fill="#101828" font-size="78" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">¥176.79</text>
+  <text x="224" y="542" fill="#667085" font-size="22" font-family="SF Pro Display, PingFang SC, sans-serif">按照当前规则，今天预计累计 ¥545.45。</text>
+  <rect x="224" y="564" width="440" height="12" rx="6" fill="#E5E7EB"/>
+  <rect x="224" y="564" width="152" height="12" rx="6" fill="#FFC52C"/>
+
+  <rect x="194" y="614" width="546" height="185" rx="28" fill="white"/>
+  <text x="224" y="654" fill="#98A2B3" font-size="16" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">状态切换</text>
+  <text x="224" y="698" fill="#344054" font-size="20" font-family="SF Pro Display, PingFang SC, sans-serif">状态</text>
+  <rect x="286" y="672" width="316" height="44" rx="22" fill="#EEF2F6"/>
+  <rect x="289" y="675" width="74" height="38" rx="19" fill="#1677FF"/>
+  <text x="326" y="700" text-anchor="middle" fill="white" font-size="18" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">自动</text>
+  <text x="401" y="700" text-anchor="middle" fill="#344054" font-size="18" font-family="SF Pro Display, PingFang SC, sans-serif">开工</text>
+  <text x="476" y="700" text-anchor="middle" fill="#344054" font-size="18" font-family="SF Pro Display, PingFang SC, sans-serif">摸鱼</text>
+  <text x="551" y="700" text-anchor="middle" fill="#344054" font-size="18" font-family="SF Pro Display, PingFang SC, sans-serif">收工</text>
+  <text x="224" y="746" fill="#98A2B3" font-size="17" font-family="SF Pro Display, PingFang SC, sans-serif">自动按规则跑；摸鱼暂停累计；收工冻结今日收入。</text>
+
+  <rect x="771" y="258" width="404" height="541" rx="32" fill="url(#panel)"/>
+  <text x="807" y="308" fill="#98A2B3" font-size="16" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">基础设置</text>
+  <text x="807" y="354" fill="#344054" font-size="20" font-family="SF Pro Display, PingFang SC, sans-serif">计算方式</text>
+  <rect x="921" y="327" width="176" height="44" rx="22" fill="#EEF2F6"/>
+  <rect x="924" y="330" width="84" height="38" rx="19" fill="#1677FF"/>
+  <text x="966" y="355" text-anchor="middle" fill="white" font-size="18" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">按月薪</text>
+  <text x="1053" y="355" text-anchor="middle" fill="#344054" font-size="18" font-family="SF Pro Display, PingFang SC, sans-serif">按时薪</text>
+
+  <text x="807" y="414" fill="#667085" font-size="17" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">月薪</text>
+  <rect x="807" y="429" width="150" height="54" rx="16" fill="#F2F4F7"/>
+  <text x="833" y="464" fill="#101828" font-size="26" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">12,000</text>
+
+  <text x="989" y="414" fill="#667085" font-size="17" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">每月工作日</text>
+  <rect x="989" y="429" width="150" height="54" rx="16" fill="#F2F4F7"/>
+  <text x="1018" y="464" fill="#101828" font-size="26" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">22</text>
+
+  <text x="807" y="533" fill="#667085" font-size="17" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">上班</text>
+  <rect x="807" y="548" width="128" height="54" rx="16" fill="#F2F4F7"/>
+  <text x="835" y="583" fill="#101828" font-size="26" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">09:00</text>
+
+  <text x="963" y="533" fill="#667085" font-size="17" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">下班</text>
+  <rect x="963" y="548" width="128" height="54" rx="16" fill="#F2F4F7"/>
+  <text x="992" y="583" fill="#101828" font-size="26" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">18:30</text>
+
+  <text x="807" y="652" fill="#667085" font-size="17" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">午休开始</text>
+  <rect x="807" y="667" width="128" height="54" rx="16" fill="#F2F4F7"/>
+  <text x="835" y="702" fill="#101828" font-size="26" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">12:00</text>
+
+  <text x="963" y="652" fill="#667085" font-size="17" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">午休分钟</text>
+  <rect x="963" y="667" width="128" height="54" rx="16" fill="#F2F4F7"/>
+  <text x="999" y="702" fill="#101828" font-size="26" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">90</text>
+
+  <rect x="807" y="748" width="332" height="1" fill="#EAECF0"/>
+  <text x="807" y="784" fill="#98A2B3" font-size="16" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">状态栏</text>
+  <rect x="898" y="757" width="196" height="44" rx="22" fill="#111827"/>
+  <text x="996" y="785" text-anchor="middle" fill="white" font-size="19" font-family="SF Pro Display, PingFang SC, sans-serif" font-weight="700">💰 ¥176.79 (+0.02/s)</text>
+</svg>
