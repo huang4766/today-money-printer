@@ -2,6 +2,7 @@
 
 ## Files
 
+- Version file: `VERSION`
 - App bundle: `今日印钞.app`
 - Release notes: `release-notes-v1.0.0.md`
 - Release zip: `dist/today-money-printer-v1.0.0-macos.zip`
@@ -9,18 +10,26 @@
 ## One Command
 
 ```bash
-export GITEE_TOKEN=你的_gitee_access_token
-./publish_release.sh 1.0.0
+./publish_release.sh
 ```
 
-默认会执行构建、打包，并创建或更新 GitHub / Gitee 两边的 release。
+默认会读取 `VERSION`，自动把补丁版本加 `1`，然后执行构建、打包，并创建或更新 GitHub / Gitee 两边的 release。
+
+- 例如 `VERSION` 当前是 `1.0.0`，直接运行会发布 `1.0.1`
+- 发布成功后脚本会把 `VERSION` 更新为实际发布版本
 
 - GitHub 仓库默认用 `huang4766/today-money-printer`
 - Gitee 仓库默认用 `hl95599/today-money-printer`
 - 如果只想复用已经打好的包，可以加 `SKIP_BUILD=1`
 
 ```bash
-SKIP_BUILD=1 GITEE_TOKEN=你的_gitee_access_token ./publish_release.sh 1.0.0
+SKIP_BUILD=1 ./publish_release.sh
+```
+
+如果你想手动指定版本，也仍然可以：
+
+```bash
+./publish_release.sh 1.0.1
 ```
 
 ## Manual Steps

@@ -3,29 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 VERSION="${1:-}"
-
-if [[ -z "$VERSION" ]]; then
-  echo "Usage: ./publish_release.sh <version>"
-  echo "Example: ./publish_release.sh 1.0.1"
-  exit 1
-fi
-
-TAG="v${VERSION}"
-TITLE="今日印钞 ${TAG}"
-NOTES_FILE="$ROOT_DIR/release-notes-v${VERSION}.md"
-ASSET_NAME="today-money-printer-v${VERSION}-macos.zip"
-ASSET_PATH="$ROOT_DIR/dist/$ASSET_NAME"
-README_FILE="$ROOT_DIR/README.md"
-
-GITHUB_REPO="${GITHUB_REPO:-huang4766/today-money-printer}"
-GITEE_OWNER="${GITEE_OWNER:-hl95599}"
-GITEE_REPO="${GITEE_REPO:-today-money-printer}"
-GITEE_TOKEN="${GITEE_TOKEN:-}"
-SKIP_BUILD="${SKIP_BUILD:-0}"
-
-GITHUB_RELEASES_URL="https://github.com/${GITHUB_REPO}/releases"
-GITHUB_LATEST_URL="${GITHUB_RELEASES_URL}/latest"
-GITEE_RELEASES_URL="https://gitee.com/${GITEE_OWNER}/${GITEE_REPO}/releases"
+VERSION_FILE="$ROOT_DIR/VERSION"
 
 require_command() {
   if ! command -v "$1" >/dev/null 2>&1; then
@@ -38,6 +16,55 @@ require_file() {
   if [[ ! -f "$1" ]]; then
     echo "Missing required file: $1"
     exit 1
+  fi
+}
+
+current_version() {
+  require_file "$VERSION_FILE"
+  tr -d '[:space:]' < "$VERSION_FILE"
+}
+
+next_patch_version() {
+  local version="$1"
+  local major minor patch
+  IFS='.' read -r major minor patch <<< "$version"
+
+  if [[ -z "${major:-}" || -z "${minor:-}" || -z "${patch:-}" ]]; then
+    echo "Invalid version in $VERSION_FILE: $version"
+    exit 1
+  fi
+
+  echo "${major}.${minor}.$((patch + 1))"
+}
+
+if [[ -z "$VERSION" ]]; then
+  VERSION="$(next_patch_version "$(current_version)")"
+  echo "No version argument provided, auto-bumping to $VERSION"
+fi
+
+TAG="v${VERSION}"
+TITLE="今日印钞 ${TAG}"
+NOTES_FILE="$ROOT_DIR/release-notes-v${VERSION}.md"
+ASSET_NAME="today-money-printer-v${VERSION}-macos.zip"
+ASSET_PATH="$ROOT_DIR/dist/$ASSET_NAME"
+README_FILE="$ROOT_DIR/README.md"
+ENV_FILE="$ROOT_DIR/.env"
+
+GITHUB_REPO="${GITHUB_REPO:-huang4766/today-money-printer}"
+GITEE_OWNER="${GITEE_OWNER:-hl95599}"
+GITEE_REPO="${GITEE_REPO:-today-money-printer}"
+GITEE_TOKEN="${GITEE_TOKEN:-}"
+SKIP_BUILD="${SKIP_BUILD:-0}"
+
+GITHUB_RELEASES_URL="https://github.com/${GITHUB_REPO}/releases"
+GITHUB_LATEST_URL="${GITHUB_RELEASES_URL}/latest"
+GITEE_RELEASES_URL="https://gitee.com/${GITEE_OWNER}/${GITEE_REPO}/releases"
+
+load_env_file() {
+  if [[ -f "$ENV_FILE" ]]; then
+    set -a
+    source "$ENV_FILE"
+    set +a
   fi
 }
 
@@ -78,6 +105,10 @@ for line in lines:
 
 readme_path.write_text("\n".join(updated) + "\n", encoding="utf-8")
 PY
+}
+
+write_version_file() {
+  printf '%s\n' "$VERSION" > "$VERSION_FILE"
 }
 
 github_release_exists() {
@@ -199,8 +230,11 @@ main() {
   require_command jq
   require_command curl
   require_command python3
+  load_env_file
   ensure_gitee_token
+  require_file "$VERSION_FILE"
   require_file "$NOTES_FILE"
+  write_version_file
   sync_readme_download_links
 
   if [[ "$SKIP_BUILD" != "1" ]]; then
