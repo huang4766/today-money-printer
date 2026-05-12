@@ -27,6 +27,8 @@
 ## 下载
 
 - 推荐从 GitHub Releases 下载打包好的 `.app` 或压缩包
+- 最新 GitHub 下载页: [today-money-printer 最新版](https://github.com/huang4766/today-money-printer/releases/latest)
+- 最新 Gitee 下载页: [today-money-printer 最新版](https://gitee.com/hl95599/today-money-printer/releases)
 - 如果你想自己构建，也可以按下面步骤生成 `今日印钞.app`
 - Releases: [huang4766/today-money-printer/releases](https://github.com/huang4766/today-money-printer/releases)
 
