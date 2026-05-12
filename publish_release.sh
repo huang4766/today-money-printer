@@ -111,6 +111,61 @@ write_version_file() {
   printf '%s\n' "$VERSION" > "$VERSION_FILE"
 }
 
+ensure_release_notes_file() {
+  if [[ -f "$NOTES_FILE" ]]; then
+    return
+  fi
+
+  local latest_notes
+  latest_notes="$(ls "$ROOT_DIR"/release-notes-v*.md 2>/dev/null | sort | tail -n 1)"
+
+  if [[ -z "$latest_notes" ]]; then
+    cat > "$NOTES_FILE" <<EOF
+# 今日印钞 ${TAG}
+
+一个维护更新版本。
+
+## 更新
+
+- 待补充
+
+## 使用方式
+
+1. 下载 \`今日印钞.app\` 或对应压缩包
+2. 打开后在菜单栏中找到 \`今日印钞\`
+3. 点击菜单栏图标进入设置面板
+4. 填写你的月薪、时薪、工时和规则
+
+## 已知说明
+
+- 当前主要面向 \`macOS 14+\`
+- 如果遇到 Gatekeeper 拦截，需要在系统设置中允许打开
+EOF
+    echo "Created $NOTES_FILE from built-in template"
+    return
+  fi
+
+  python3 - "$latest_notes" "$NOTES_FILE" "$TAG" <<'PY'
+from pathlib import Path
+import re
+import sys
+
+source_path = Path(sys.argv[1])
+target_path = Path(sys.argv[2])
+tag = sys.argv[3]
+
+content = source_path.read_text(encoding="utf-8")
+content = re.sub(r"^# 今日印钞 v[0-9]+\.[0-9]+\.[0-9]+$", f"# 今日印钞 {tag}", content, count=1, flags=re.M)
+
+if "## 更新" in content and "- 待补充" not in content:
+    content = content.replace("## 更新\n", "## 更新\n\n- 待补充\n", 1)
+
+target_path.write_text(content, encoding="utf-8")
+PY
+
+  echo "Created $NOTES_FILE from $(basename "$latest_notes")"
+}
+
 github_release_exists() {
   gh release view "$TAG" --repo "$GITHUB_REPO" >/dev/null 2>&1
 }
@@ -233,6 +288,7 @@ main() {
   load_env_file
   ensure_gitee_token
   require_file "$VERSION_FILE"
+  ensure_release_notes_file
   require_file "$NOTES_FILE"
   write_version_file
   sync_readme_download_links
